@@ -1,4 +1,4 @@
-// scripts/deploy-token.js
+//script to_deploy_TokenContract
 const hre = require("hardhat");
 
 async function main() {
