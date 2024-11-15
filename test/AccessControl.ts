@@ -30,7 +30,7 @@ describe("CustomToken", function () {
     it("should prevent non-admin from adding minter", async function () {
       await expect(
         token.connect(user1).addMinter(minter.address)
-      ).to.be.revertedWith("Admin alone can call this function");
+      ).to.be.revertedWith("Only admin can call this function");
     });
 
     it("should allow admin to remove minter", async function () {
@@ -43,7 +43,7 @@ describe("CustomToken", function () {
       await token.addMinter(minter.address);
       await expect(
         token.connect(user1).removeMinter(minter.address)
-      ).to.be.revertedWith("Admin alone can call this function");
+      ).to.be.revertedWith("Only admin can call this function");
     });
   });
 
@@ -60,7 +60,7 @@ describe("CustomToken", function () {
     it("should prevent non-minter from minting tokens", async function () {
       await expect(
         token.connect(user1).mint(user2.address, initialSupply)
-      ).to.be.revertedWith("Minters alone can initiate this function");
+      ).to.be.revertedWith("Only minters can call this function");
     });
 
     it("should update total supply after minting", async function () {
